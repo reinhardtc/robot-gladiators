@@ -96,7 +96,7 @@ var startGame = function() {
       break;
     }
   }
-  var pickedEnemy = enemy.names[i];
+  var pickedEnemy = enemyInfo.name[i];
   enemy.health = 50;
   fight(pickedEnemy);
 
@@ -142,8 +142,6 @@ var shop = function() {
       break;
   }
 
-
-
 }
 
 var randomNumber = function(min, max) {
@@ -152,8 +150,19 @@ var randomNumber = function(min, max) {
   return value;
 };
 
+/* game info/variables */
+
+getPlayerName = function() {
+  var name = "";
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  };
+  console.log("Your robot's name is " + name);
+}
+
+
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
@@ -195,6 +204,11 @@ var enemyInfo = [
     attack: randomNumber(10, 14)
   }
 ];
+
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]['attack']);
 
 startGame();
 
